@@ -34,6 +34,10 @@ function App() {
         <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
         <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
         <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
+        <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
+        <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
+        <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
+        <div className="aspect-square min-h-0 min-w-0 bg-gray-500"></div>
       </div>
     </div>
   );
