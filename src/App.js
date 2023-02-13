@@ -1,11 +1,8 @@
-import Tiles from "./components/Tiles";
+// import Tiles from "./components/Tiles";
+import Tile from "./components/Tile";
 
 function App() {
-  return (
-    <div className="h-screen w-screen bg-yellow-300">
-      <Tiles />
-    </div>
-  );
+  return <Tile />;
 }
 
 export default App;
