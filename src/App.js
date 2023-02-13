@@ -1,8 +1,7 @@
-import Card from "./components/Card";
-// import Tile from "./components/Tile";
+import Cards from "./components/Cards";
 
 function App() {
-  return <Card />;
+  return <Cards />;
 }
 
 export default App;

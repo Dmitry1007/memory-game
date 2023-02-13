@@ -9,29 +9,27 @@ function Card() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <ReactCardFlip
-        isFlipped={isFlipped}
-        flipDirection="horizontal"
-        flipSpeedFrontToBack="1"
-        flipSpeedBackToFront="1"
-        containerClassName="hover:cursor-pointer"
+    <ReactCardFlip
+      isFlipped={isFlipped}
+      flipDirection="horizontal"
+      flipSpeedFrontToBack="1"
+      flipSpeedBackToFront="1"
+      containerClassName="hover:cursor-pointer"
+    >
+      <div
+        className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-200 shadow-xl"
+        onClick={handleClick}
       >
-        <div
-          className="h-96 w-96 rounded-xl bg-slate-200 shadow-xl"
-          onClick={handleClick}
-        >
-          FRONT
-        </div>
+        FRONT
+      </div>
 
-        <div
-          className="h-96 w-96 rounded-xl bg-blue-300 shadow-xl"
-          onClick={handleClick}
-        >
-          BACK
-        </div>
-      </ReactCardFlip>
-    </div>
+      <div
+        className="aspect-square min-h-0 min-w-0 rounded-xl bg-blue-300 shadow-xl"
+        onClick={handleClick}
+      >
+        BACK
+      </div>
+    </ReactCardFlip>
   );
 }
 
