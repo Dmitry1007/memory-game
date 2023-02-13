@@ -1,9 +1,8 @@
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
-function Card() {
+function Card({ color }) {
   const [isFlipped, setIsFlipped] = useState(false);
-
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
@@ -12,8 +11,8 @@ function Card() {
     <ReactCardFlip
       isFlipped={isFlipped}
       flipDirection="horizontal"
-      flipSpeedFrontToBack="1"
-      flipSpeedBackToFront="1"
+      flipSpeedFrontToBack="0.7"
+      flipSpeedBackToFront="0.7"
       containerClassName="hover:cursor-pointer"
     >
       <div
@@ -22,9 +21,8 @@ function Card() {
       >
         FRONT
       </div>
-
       <div
-        className="aspect-square min-h-0 min-w-0 rounded-xl bg-blue-300 shadow-xl"
+        className={`aspect-square min-h-0 min-w-0 rounded-xl ${color} shadow-xl`}
         onClick={handleClick}
       >
         BACK
