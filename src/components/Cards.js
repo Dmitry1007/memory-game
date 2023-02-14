@@ -45,45 +45,45 @@ function Cards() {
 
   const handleCardClick = (clickedCard) => {
     if (flippedCard.color === "") {
+      // flip the first card over
       console.log("First Flip Card");
-      const updatedCards = cards.map((card) => {
-        if (card === clickedCard) {
-          return { ...card, isFlipped: true };
-        } else {
-          return card;
-        }
-      });
-      setFlippedCard({ ...clickedCard, isFlipped: true });
-      setCards(updatedCards);
+      flipCard(clickedCard);
     } else if (flippedCard.color !== clickedCard.color) {
+      // flip the second card over
+      flipCard(clickedCard);
       console.log("No Match");
-      // flip clicked card over
-      const updatedCards = cards.map((card) => {
-        if (card === clickedCard) {
-          return { ...card, isFlipped: true };
-        } else {
-          return card;
-        }
-      });
-      setCards(updatedCards);
       // wait 1 second and then unflip both cards
-      setTimeout(function () {
-        console.log("1 second has passed");
-        const unFlippedCards = cards.map((card) => {
-          if (card.isFlipped) {
-            return { ...card, isFlipped: false };
-          } else {
-            return card;
-          }
-        });
-        setCards(unFlippedCards);
-        setFlippedCard({ color: "", isFlipped: false });
-      }, 1000);
+      unFlipCards();
+    } else if (flippedCard.color === clickedCard.color) {
+      console.log("Match");
     }
   };
 
-  console.log("flippedCard", flippedCard);
-  console.log("cards", cards);
+  const flipCard = (clickedCard) => {
+    const updatedCards = cards.map((card) => {
+      if (card === clickedCard) {
+        return { ...card, isFlipped: true };
+      } else {
+        return card;
+      }
+    });
+    setFlippedCard({ ...clickedCard, isFlipped: true });
+    setCards(updatedCards);
+  };
+
+  const unFlipCards = () => {
+    setTimeout(() => {
+      const unFlippedCards = cards.map((card) => {
+        if (card.isFlipped) {
+          return { ...card, isFlipped: false };
+        } else {
+          return card;
+        }
+      });
+      setCards(unFlippedCards);
+      setFlippedCard({ color: "", isFlipped: false });
+    }, 1000);
+  };
 
   const renderedCards = cards.map((card) => {
     return <Card key={card.id} card={card} onCardClick={handleCardClick} />;

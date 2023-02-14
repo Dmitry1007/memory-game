@@ -16,15 +16,11 @@ function Card({ card, onCardClick }) {
       <div
         className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-200 shadow-xl"
         onClick={() => handleClick(card)}
-      >
-        FRONT
-      </div>
+      ></div>
       <div
         className={`aspect-square min-h-0 min-w-0 rounded-xl ${card.color} shadow-xl`}
         onClick={() => handleClick(card)}
-      >
-        BACK
-      </div>
+      ></div>
     </ReactCardFlip>
   );
 }
