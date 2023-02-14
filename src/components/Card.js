@@ -2,7 +2,9 @@ import ReactCardFlip from "react-card-flip";
 
 function Card({ card, onCardClick }) {
   const handleClick = (card) => {
-    onCardClick(card);
+    if (!card.disabled) {
+      onCardClick(card);
+    }
   };
 
   return (

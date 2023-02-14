@@ -2,38 +2,38 @@ import { useState } from "react";
 import Card from "./Card";
 
 const CARDS = [
-  { id: 1, color: "bg-red-400", isFlipped: false },
-  { id: 2, color: "bg-pink-300", isFlipped: false },
-  { id: 3, color: "bg-purple-300", isFlipped: false },
-  { id: 4, color: "bg-indigo-300", isFlipped: false },
-  { id: 5, color: "bg-blue-400", isFlipped: false },
-  { id: 6, color: "bg-cyan-300", isFlipped: false },
-  { id: 7, color: "bg-teal-300", isFlipped: false },
-  { id: 8, color: "bg-green-300", isFlipped: false },
-  { id: 9, color: "bg-lime-300", isFlipped: false },
-  { id: 10, color: "bg-yellow-200", isFlipped: false },
-  { id: 11, color: "bg-amber-400", isFlipped: false },
-  { id: 12, color: "bg-orange-300", isFlipped: false },
-  { id: 13, color: "bg-violet-500", isFlipped: false },
-  { id: 14, color: "bg-gray-400", isFlipped: false },
-  { id: 15, color: "bg-sky-600", isFlipped: false },
-  { id: 16, color: "bg-black", isFlipped: false },
-  { id: 17, color: "bg-red-400", isFlipped: false },
-  { id: 18, color: "bg-pink-300", isFlipped: false },
-  { id: 19, color: "bg-purple-300", isFlipped: false },
-  { id: 20, color: "bg-indigo-300", isFlipped: false },
-  { id: 21, color: "bg-blue-400", isFlipped: false },
-  { id: 22, color: "bg-cyan-300", isFlipped: false },
-  { id: 23, color: "bg-teal-300", isFlipped: false },
-  { id: 24, color: "bg-green-300", isFlipped: false },
-  { id: 25, color: "bg-lime-300", isFlipped: false },
-  { id: 26, color: "bg-yellow-200", isFlipped: false },
-  { id: 27, color: "bg-amber-400", isFlipped: false },
-  { id: 28, color: "bg-orange-300", isFlipped: false },
-  { id: 29, color: "bg-violet-500", isFlipped: false },
-  { id: 30, color: "bg-gray-400", isFlipped: false },
-  { id: 31, color: "bg-sky-600", isFlipped: false },
-  { id: 32, color: "bg-black", isFlipped: false },
+  { id: 1, color: "bg-red-400", isFlipped: false, disabled: false },
+  { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
+  { id: 3, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 4, color: "bg-indigo-300", isFlipped: false, disabled: false },
+  { id: 5, color: "bg-blue-400", isFlipped: false, disabled: false },
+  { id: 6, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 7, color: "bg-teal-300", isFlipped: false, disabled: false },
+  { id: 8, color: "bg-green-300", isFlipped: false, disabled: false },
+  { id: 9, color: "bg-lime-300", isFlipped: false, disabled: false },
+  { id: 10, color: "bg-yellow-200", isFlipped: false, disabled: false },
+  { id: 11, color: "bg-amber-400", isFlipped: false, disabled: false },
+  { id: 12, color: "bg-orange-300", isFlipped: false, disabled: false },
+  { id: 13, color: "bg-violet-500", isFlipped: false, disabled: false },
+  { id: 14, color: "bg-gray-400", isFlipped: false, disabled: false },
+  { id: 15, color: "bg-sky-600", isFlipped: false, disabled: false },
+  { id: 16, color: "bg-black", isFlipped: false, disabled: false },
+  { id: 17, color: "bg-red-400", isFlipped: false, disabled: false },
+  { id: 18, color: "bg-pink-300", isFlipped: false, disabled: false },
+  { id: 19, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 20, color: "bg-indigo-300", isFlipped: false, disabled: false },
+  { id: 21, color: "bg-blue-400", isFlipped: false, disabled: false },
+  { id: 22, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 23, color: "bg-teal-300", isFlipped: false, disabled: false },
+  { id: 24, color: "bg-green-300", isFlipped: false, disabled: false },
+  { id: 25, color: "bg-lime-300", isFlipped: false, disabled: false },
+  { id: 26, color: "bg-yellow-200", isFlipped: false, disabled: false },
+  { id: 27, color: "bg-amber-400", isFlipped: false, disabled: false },
+  { id: 28, color: "bg-orange-300", isFlipped: false, disabled: false },
+  { id: 29, color: "bg-violet-500", isFlipped: false, disabled: false },
+  { id: 30, color: "bg-gray-400", isFlipped: false, disabled: false },
+  { id: 31, color: "bg-sky-600", isFlipped: false, disabled: false },
+  { id: 32, color: "bg-black", isFlipped: false, disabled: false },
 ];
 
 function Cards() {
@@ -43,7 +43,7 @@ function Cards() {
     isFlipped: false,
   });
 
-  const handleCardClick = (clickedCard) => {
+  const handleCardClick = async (clickedCard) => {
     if (flippedCard.color === "") {
       // flip the first card over
       console.log("First Flip Card");
@@ -56,7 +56,24 @@ function Cards() {
       unFlipCards();
     } else if (flippedCard.color === clickedCard.color) {
       console.log("Match");
+      flipCard(clickedCard);
+      // disable both cards
+      disableCards(clickedCard);
     }
+  };
+
+  console.log("Render", cards);
+
+  const disableCards = (clickedCard) => {
+    const updatedCards = cards.map((card) => {
+      if (card.isFlipped || card === clickedCard) {
+        return { ...card, isFlipped: true, disabled: true };
+      } else {
+        return card;
+      }
+    });
+    console.log("updated Cards", updatedCards);
+    setCards(updatedCards);
   };
 
   const flipCard = (clickedCard) => {
@@ -67,8 +84,8 @@ function Cards() {
         return card;
       }
     });
-    setFlippedCard({ ...clickedCard, isFlipped: true });
     setCards(updatedCards);
+    setFlippedCard({ ...clickedCard, isFlipped: true });
   };
 
   const unFlipCards = () => {
