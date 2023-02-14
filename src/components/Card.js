@@ -1,10 +1,12 @@
 import { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 
-function Card({ color }) {
+function Card({ color, clickedColor }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const handleClick = () => {
+
+  const handleClick = (color) => {
     setIsFlipped(!isFlipped);
+    clickedColor(color);
   };
 
   return (
@@ -17,13 +19,13 @@ function Card({ color }) {
     >
       <div
         className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-200 shadow-xl"
-        onClick={handleClick}
+        onClick={() => handleClick(color)}
       >
         FRONT
       </div>
       <div
         className={`aspect-square min-h-0 min-w-0 rounded-xl ${color} shadow-xl`}
-        onClick={handleClick}
+        onClick={() => handleClick(color)}
       >
         BACK
       </div>

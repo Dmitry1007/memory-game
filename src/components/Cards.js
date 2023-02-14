@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./Card";
 
 const cards = [
@@ -36,8 +37,28 @@ const cards = [
 ];
 
 function Cards() {
+  const [firstClickedColor, setFirstClickedColor] = useState("");
+
+  const handleColorClick = (color) => {
+    if (firstClickedColor === "") {
+      setFirstClickedColor(color);
+    } else {
+      compareColors(color);
+    }
+  };
+
+  const compareColors = (color) => {
+    if (firstClickedColor === color) {
+      console.log("match");
+      setFirstClickedColor("");
+    } else {
+      console.log("no match");
+      setFirstClickedColor("");
+    }
+  };
+
   const renderedCards = cards.map((color, index) => {
-    return <Card key={index} color={color} />;
+    return <Card key={index} color={color} clickedColor={handleColorClick} />;
   });
 
   return (
