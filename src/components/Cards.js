@@ -1,64 +1,57 @@
 import { useState } from "react";
 import Card from "./Card";
 
-const cards = [
-  "bg-red-400",
-  "bg-pink-300",
-  "bg-purple-300",
-  "bg-indigo-300",
-  "bg-blue-400",
-  "bg-cyan-300",
-  "bg-teal-300",
-  "bg-green-300",
-  "bg-lime-300",
-  "bg-yellow-200",
-  "bg-amber-400",
-  "bg-orange-300",
-  "bg-violet-500",
-  "bg-gray-400",
-  "bg-sky-600",
-  "bg-black",
-  "bg-red-400",
-  "bg-pink-300",
-  "bg-purple-300",
-  "bg-indigo-300",
-  "bg-blue-400",
-  "bg-cyan-300",
-  "bg-teal-300",
-  "bg-green-300",
-  "bg-lime-300",
-  "bg-yellow-200",
-  "bg-amber-400",
-  "bg-orange-300",
-  "bg-violet-500",
-  "bg-gray-400",
-  "bg-sky-600",
-  "bg-black",
+const CARDS = [
+  { id: 1, color: "bg-red-400", isFlipped: false },
+  { id: 2, color: "bg-pink-300", isFlipped: false },
+  { id: 3, color: "bg-purple-300", isFlipped: false },
+  { id: 4, color: "bg-indigo-300", isFlipped: false },
+  { id: 5, color: "bg-blue-400", isFlipped: false },
+  { id: 6, color: "bg-cyan-300", isFlipped: false },
+  { id: 7, color: "bg-teal-300", isFlipped: false },
+  { id: 8, color: "bg-green-300", isFlipped: false },
+  { id: 9, color: "bg-lime-300", isFlipped: false },
+  { id: 10, color: "bg-yellow-200", isFlipped: false },
+  { id: 11, color: "bg-amber-400", isFlipped: false },
+  { id: 12, color: "bg-orange-300", isFlipped: false },
+  { id: 13, color: "bg-violet-500", isFlipped: false },
+  { id: 14, color: "bg-gray-400", isFlipped: false },
+  { id: 15, color: "bg-sky-600", isFlipped: false },
+  { id: 16, color: "bg-black", isFlipped: false },
+  { id: 17, color: "bg-red-400", isFlipped: false },
+  { id: 18, color: "bg-pink-300", isFlipped: false },
+  { id: 19, color: "bg-purple-300", isFlipped: false },
+  { id: 20, color: "bg-indigo-300", isFlipped: false },
+  { id: 21, color: "bg-blue-400", isFlipped: false },
+  { id: 22, color: "bg-cyan-300", isFlipped: false },
+  { id: 23, color: "bg-teal-300", isFlipped: false },
+  { id: 24, color: "bg-green-300", isFlipped: false },
+  { id: 25, color: "bg-lime-300", isFlipped: false },
+  { id: 26, color: "bg-yellow-200", isFlipped: false },
+  { id: 27, color: "bg-amber-400", isFlipped: false },
+  { id: 28, color: "bg-orange-300", isFlipped: false },
+  { id: 29, color: "bg-violet-500", isFlipped: false },
+  { id: 30, color: "bg-gray-400", isFlipped: false },
+  { id: 31, color: "bg-sky-600", isFlipped: false },
+  { id: 32, color: "bg-black", isFlipped: false },
 ];
 
 function Cards() {
-  const [firstClickedColor, setFirstClickedColor] = useState("");
+  const [cards, setCards] = useState(CARDS);
 
-  const handleColorClick = (color) => {
-    if (firstClickedColor === "") {
-      setFirstClickedColor(color);
-    } else {
-      compareColors(color);
-    }
+  const handleColorClick = (clickedCard) => {
+    const updatedCards = cards.map((card) => {
+      if (card === clickedCard) {
+        return { ...card, isFlipped: true };
+      } else {
+        return card;
+      }
+    });
+    setCards(updatedCards);
   };
 
-  const compareColors = (color) => {
-    if (firstClickedColor === color) {
-      console.log("match");
-      setFirstClickedColor("");
-    } else {
-      console.log("no match");
-      setFirstClickedColor("");
-    }
-  };
-
-  const renderedCards = cards.map((color, index) => {
-    return <Card key={index} color={color} clickedColor={handleColorClick} />;
+  const renderedCards = cards.map((card, index) => {
+    return <Card key={index} card={card} clickedColor={handleColorClick} />;
   });
 
   return (
