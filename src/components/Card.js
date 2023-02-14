@@ -1,8 +1,8 @@
 import ReactCardFlip from "react-card-flip";
 
-function Card({ card, clickedColor }) {
+function Card({ card, onCardClick }) {
   const handleClick = (card) => {
-    clickedColor(card);
+    onCardClick(card);
   };
 
   return (
