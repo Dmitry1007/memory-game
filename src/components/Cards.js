@@ -72,7 +72,7 @@ function Cards() {
         return card;
       }
     });
-    console.log("updated Cards", updatedCards);
+    setFlippedCard({ color: "", isFlipped: false });
     setCards(updatedCards);
   };
 
@@ -91,7 +91,7 @@ function Cards() {
   const unFlipCards = () => {
     setTimeout(() => {
       const unFlippedCards = cards.map((card) => {
-        if (card.isFlipped) {
+        if (card.isFlipped && !card.disabled) {
           return { ...card, isFlipped: false };
         } else {
           return card;
