@@ -62,8 +62,6 @@ function Cards() {
     }
   };
 
-  console.log("Render", cards);
-
   const disableCards = (clickedCard) => {
     const updatedCards = cards.map((card) => {
       if (card.isFlipped || card === clickedCard) {
