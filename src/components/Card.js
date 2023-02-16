@@ -16,7 +16,7 @@ function Card({ card, onCardClick }) {
       containerClassName="hover:cursor-pointer"
     >
       <div
-        className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-200 shadow-xl"
+        className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-300 shadow-xl"
         onClick={() => handleClick(card)}
       ></div>
       <div

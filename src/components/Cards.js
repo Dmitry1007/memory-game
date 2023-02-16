@@ -11,29 +11,15 @@ const CARDS = [
   { id: 7, color: "bg-teal-300", isFlipped: false, disabled: false },
   { id: 8, color: "bg-green-300", isFlipped: false, disabled: false },
   { id: 9, color: "bg-lime-300", isFlipped: false, disabled: false },
-  { id: 10, color: "bg-yellow-200", isFlipped: false, disabled: false },
-  { id: 11, color: "bg-amber-400", isFlipped: false, disabled: false },
-  { id: 12, color: "bg-orange-300", isFlipped: false, disabled: false },
-  { id: 13, color: "bg-violet-500", isFlipped: false, disabled: false },
-  { id: 14, color: "bg-gray-400", isFlipped: false, disabled: false },
-  { id: 15, color: "bg-sky-600", isFlipped: false, disabled: false },
-  { id: 16, color: "bg-black", isFlipped: false, disabled: false },
-  { id: 17, color: "bg-red-400", isFlipped: false, disabled: false },
-  { id: 18, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 19, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 20, color: "bg-indigo-300", isFlipped: false, disabled: false },
-  { id: 21, color: "bg-blue-400", isFlipped: false, disabled: false },
-  { id: 22, color: "bg-cyan-300", isFlipped: false, disabled: false },
-  { id: 23, color: "bg-teal-300", isFlipped: false, disabled: false },
-  { id: 24, color: "bg-green-300", isFlipped: false, disabled: false },
-  { id: 25, color: "bg-lime-300", isFlipped: false, disabled: false },
-  { id: 26, color: "bg-yellow-200", isFlipped: false, disabled: false },
-  { id: 27, color: "bg-amber-400", isFlipped: false, disabled: false },
-  { id: 28, color: "bg-orange-300", isFlipped: false, disabled: false },
-  { id: 29, color: "bg-violet-500", isFlipped: false, disabled: false },
-  { id: 30, color: "bg-gray-400", isFlipped: false, disabled: false },
-  { id: 31, color: "bg-sky-600", isFlipped: false, disabled: false },
-  { id: 32, color: "bg-black", isFlipped: false, disabled: false },
+  { id: 10, color: "bg-red-400", isFlipped: false, disabled: false },
+  { id: 11, color: "bg-pink-300", isFlipped: false, disabled: false },
+  { id: 12, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 13, color: "bg-indigo-300", isFlipped: false, disabled: false },
+  { id: 14, color: "bg-blue-400", isFlipped: false, disabled: false },
+  { id: 15, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 16, color: "bg-teal-300", isFlipped: false, disabled: false },
+  { id: 17, color: "bg-green-300", isFlipped: false, disabled: false },
+  { id: 18, color: "bg-lime-300", isFlipped: false, disabled: false },
 ];
 
 function Cards() {
@@ -108,7 +94,7 @@ function Cards() {
   console.log("flips: ", flips);
   return (
     <div className="bg- h-screen w-screen">
-      <div className="grid grid-cols-4 gap-2 p-2">{renderedCards}</div>
+      <div className="grid grid-cols-3 gap-2 p-2">{renderedCards}</div>
     </div>
   );
 }
