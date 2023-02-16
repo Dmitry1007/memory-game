@@ -38,12 +38,14 @@ const CARDS = [
 
 function Cards() {
   const [cards, setCards] = useState(CARDS);
+  const [flips, setFlips] = useState(0);
   const [flippedCard, setFlippedCard] = useState({
     color: "",
     isFlipped: false,
   });
 
   const handleCardClick = async (clickedCard) => {
+    setFlips(flips + 1);
     if (flippedCard.color === "") {
       // flip the first card over
       console.log("First Flip Card");
@@ -103,7 +105,7 @@ function Cards() {
   const renderedCards = cards.map((card) => {
     return <Card key={card.id} card={card} onCardClick={handleCardClick} />;
   });
-
+  console.log("flips: ", flips);
   return (
     <div className="bg- h-screen w-screen">
       <div className="grid grid-cols-4 gap-2 p-2">{renderedCards}</div>
