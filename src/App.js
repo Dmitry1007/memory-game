@@ -1,10 +1,11 @@
 import Cards from "./components/Cards";
-import DialogModal from "./components/DialogModal";
+import Modal from "./components/Modal";
 
 function App() {
   return (
     <>
-      <DialogModal />
+      <Modal />
+      <Cards />
     </>
   );
 }
