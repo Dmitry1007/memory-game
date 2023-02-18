@@ -94,6 +94,10 @@ function Cards() {
     }, 1000);
   };
 
+  const handleGameEnd = () => {
+    console.log("Start Game Again");
+  };
+
   const renderedCards = cards.map((card) => {
     return <Card key={card.id} card={card} onCardClick={handleCardClick} />;
   });
@@ -109,6 +113,7 @@ function Cards() {
           text={
             "Want to challenge yourself further? Choose a higher difficulty to increase the number of colors to match."
           }
+          onModalButtonClick={handleGameEnd}
         />
       ) : null}
       <div className="grid grid-cols-3 gap-2 p-2">{renderedCards}</div>
