@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 
 const CARDS = [
@@ -19,10 +19,17 @@ const CARDS = [
 function Cards() {
   const [cards, setCards] = useState(CARDS);
   const [flips, setFlips] = useState(0);
+  const [matches, setMatches] = useState(0);
   const [flippedCard, setFlippedCard] = useState({
     color: "",
     isFlipped: false,
   });
+
+  useEffect(() => {
+    if (matches === cards.length / 2) {
+      console.log("Game completed");
+    }
+  }, [matches, cards.length]);
 
   const handleCardClick = async (clickedCard) => {
     setFlips(flips + 1);
@@ -39,11 +46,13 @@ function Cards() {
     } else if (flippedCard.color === clickedCard.color) {
       console.log("Match");
       flipCard(clickedCard);
+      // Track matches
+      setMatches(matches + 1);
       // disable both cards
       disableCards(clickedCard);
     }
   };
-
+  console.log("matches: ", matches);
   const disableCards = (clickedCard) => {
     const updatedCards = cards.map((card) => {
       if (card.isFlipped || card === clickedCard) {
