@@ -4,14 +4,14 @@ import { Squares2X2Icon } from "@heroicons/react/24/outline";
 
 export default function Modal({ title, text, onModalButtonClick }) {
   const [open, setOpen] = useState(true);
-  const cancelButtonRef = useRef(null);
+  const startButtonRef = useRef(null);
 
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
-        initialFocus={cancelButtonRef}
+        initialFocus={startButtonRef}
         onClose={setOpen}
       >
         <Transition.Child
@@ -67,7 +67,7 @@ export default function Modal({ title, text, onModalButtonClick }) {
                       setOpen(false);
                       onModalButtonClick();
                     }}
-                    ref={cancelButtonRef}
+                    ref={startButtonRef}
                   >
                     Start
                   </button>

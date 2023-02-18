@@ -6,15 +6,9 @@ const CARDS = [
   { id: 1, color: "bg-red-400", isFlipped: false, disabled: false },
   { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
   { id: 3, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 4, color: "bg-indigo-300", isFlipped: false, disabled: false },
-  { id: 5, color: "bg-blue-400", isFlipped: false, disabled: false },
-  { id: 6, color: "bg-cyan-300", isFlipped: false, disabled: false },
-  { id: 7, color: "bg-red-400", isFlipped: false, disabled: false },
-  { id: 8, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 9, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 10, color: "bg-indigo-300", isFlipped: false, disabled: false },
-  { id: 11, color: "bg-blue-400", isFlipped: false, disabled: false },
-  { id: 12, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 4, color: "bg-red-400", isFlipped: false, disabled: false },
+  { id: 5, color: "bg-pink-300", isFlipped: false, disabled: false },
+  { id: 6, color: "bg-purple-300", isFlipped: false, disabled: false },
 ];
 
 function Cards() {
