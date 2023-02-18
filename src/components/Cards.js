@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
+import Modal from "./Modal";
 
 const CARDS = [
   { id: 1, color: "bg-red-400", isFlipped: false, disabled: false },
@@ -24,10 +25,12 @@ function Cards() {
     color: "",
     isFlipped: false,
   });
+  const [gameCompleted, setGameCompleted] = useState(false);
 
   useEffect(() => {
     if (matches === cards.length / 2) {
       console.log("Game completed");
+      setGameCompleted(true);
     }
   }, [matches, cards.length]);
 
@@ -52,7 +55,7 @@ function Cards() {
       disableCards(clickedCard);
     }
   };
-  console.log("matches: ", matches);
+
   const disableCards = (clickedCard) => {
     const updatedCards = cards.map((card) => {
       if (card.isFlipped || card === clickedCard) {
@@ -94,9 +97,13 @@ function Cards() {
   const renderedCards = cards.map((card) => {
     return <Card key={card.id} card={card} onCardClick={handleCardClick} />;
   });
+
   console.log("flips: ", flips);
+  console.log("matches: ", matches);
+
   return (
     <div className="bg- h-screen w-screen">
+      {gameCompleted ? <Modal /> : null}
       <div className="grid grid-cols-3 gap-2 p-2">{renderedCards}</div>
     </div>
   );
