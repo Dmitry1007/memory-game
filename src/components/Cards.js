@@ -103,7 +103,14 @@ function Cards() {
 
   return (
     <div className="bg- h-screen w-screen">
-      {gameCompleted ? <Modal /> : null}
+      {gameCompleted ? (
+        <Modal
+          title={"Congratulations! You've completed the game!"}
+          text={
+            "Want to challenge yourself further? Choose a higher difficulty to increase the number of colors to match."
+          }
+        />
+      ) : null}
       <div className="grid grid-cols-3 gap-2 p-2">{renderedCards}</div>
     </div>
   );

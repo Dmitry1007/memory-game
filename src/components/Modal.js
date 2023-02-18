@@ -2,7 +2,7 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Squares2X2Icon } from "@heroicons/react/24/outline";
 
-export default function Modal() {
+export default function Modal({ title, text }) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
@@ -51,15 +51,10 @@ export default function Modal() {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
-                        Welcome to Memory Game!
+                        {title}
                       </Dialog.Title>
                       <div className="mt-2">
-                        <p className="text-sm text-gray-500">
-                          Start by pushing on any square to reveal its color.
-                          Continue to search for its match. Complete the game by
-                          finiding all the matches. The less flips to
-                          completion, the higher your score.
-                        </p>
+                        <p className="text-sm text-gray-500">{text}</p>
                       </div>
                     </div>
                   </div>
