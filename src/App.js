@@ -19,26 +19,27 @@ function App() {
     color: "",
     isFlipped: false,
   });
-  const [gameStarted, setGameStarted] = useState(false);
+
   const [gameCompleted, setGameCompleted] = useState(false);
   const [modalOpen, setModalOpen] = useState(true);
 
   const handleModalButtonClick = () => {
     if (gameCompleted) {
       console.log("Start Another Game");
+      setModalOpen(false);
     } else {
       console.log("Starting Game");
-      setGameStarted(true);
       setModalOpen(false);
     }
   };
 
   useEffect(() => {
-    console.log("useEffect Called");
+    console.log("useEffect!!!!!!!!!!!!!!!");
     if (matches === 3) {
+      setModalOpen(true);
       setGameCompleted(true);
     }
-  }, [matches, gameCompleted]);
+  }, [matches]);
 
   const handleCardClick = async (clickedCard) => {
     setFlips(flips + 1);
