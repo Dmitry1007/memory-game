@@ -15,23 +15,12 @@ function App() {
   const [cards, setCards] = useState(CARDS);
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
+  const [gameCompleted, setGameCompleted] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
   const [flippedCard, setFlippedCard] = useState({
     color: "",
     isFlipped: false,
   });
-
-  const [gameCompleted, setGameCompleted] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
-
-  const handleModalButtonClick = () => {
-    if (gameCompleted) {
-      console.log("Start Another Game");
-      setModalOpen(false);
-    } else {
-      console.log("Starting Game");
-      setModalOpen(false);
-    }
-  };
 
   useEffect(() => {
     if (matches === 3) {
@@ -39,6 +28,28 @@ function App() {
       setGameCompleted(true);
     }
   }, [matches]);
+
+  const handleModalButtonClick = () => {
+    if (gameCompleted) {
+      console.log("Start Another Game");
+      setModalOpen(false);
+      resetGame();
+    } else {
+      console.log("Starting Game");
+      setModalOpen(false);
+    }
+  };
+
+  const resetGame = () => {
+    setCards(CARDS);
+    setFlips(0);
+    setMatches(0);
+    setGameCompleted(false);
+    setFlippedCard({
+      color: "",
+      isFlipped: false,
+    });
+  };
 
   const handleCardClick = async (clickedCard) => {
     setFlips(flips + 1);
