@@ -34,7 +34,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("useEffect!!!!!!!!!!!!!!!");
     if (matches === 3) {
       setModalOpen(true);
       setGameCompleted(true);
@@ -104,16 +103,17 @@ function App() {
   const modalData = gameCompleted
     ? {
         title: "Congratulations! You've completed the game!",
-        text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
+        text: "Want to challenge yourself further? Choose a higher difficulty to increase the number of colors to match.",
       }
     : {
         title: "Welcome to Memory Game!",
-        text: "Want to challenge yourself further? Choose a higher difficulty to increase the number of colors to match.",
+        text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
       };
 
   console.log("flips: ", flips);
   console.log("matches: ", matches);
-  console.log("Game Completed? inside component ", gameCompleted);
+  console.log("Game Completed? ", gameCompleted);
+  console.log("--------------------------------------------------");
 
   return (
     <>
