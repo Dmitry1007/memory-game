@@ -116,24 +116,22 @@ function App() {
   console.log("--------------------------------------------------");
 
   return (
-    <>
+    <div className="bg- h-screen w-screen">
       <Modal
         title={modalData.title}
         text={modalData.text}
         open={modalOpen}
         setOpen={handleModalButtonClick}
       />
-      <div className="bg- h-screen w-screen">
-        <div className="grid grid-cols-3 gap-2 p-2">
-          <Cards cards={cards} onCardClick={handleCardClick} />
-        </div>
-        <div className="flex flex-row p-2">
-          <div className="basis-1/4 text-lg font-bold italic text-purple-400">
-            Flips: {flips}
-          </div>
+      <div className="grid grid-cols-3 gap-2 p-2">
+        <Cards cards={cards} onCardClick={handleCardClick} />
+      </div>
+      <div className="flex flex-row p-2">
+        <div className="basis-1/4 text-lg font-bold italic text-purple-400">
+          Flips: {flips}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
