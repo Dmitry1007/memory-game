@@ -3,12 +3,24 @@ import Cards from "./components/Cards";
 import Modal from "./components/Modal";
 
 const CARDS = [
-  { id: 1, color: "bg-red-400", isFlipped: false, disabled: false },
+  { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
   { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 3, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 4, color: "bg-red-400", isFlipped: false, disabled: false },
-  { id: 5, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 6, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
+  { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
+  { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
+  { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
+  { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
+  { id: 10, color: "bg-red-300", isFlipped: false, disabled: false },
+  { id: 11, color: "bg-pink-300", isFlipped: false, disabled: false },
+  { id: 12, color: "bg-green-300", isFlipped: false, disabled: false },
+  { id: 13, color: "bg-blue-300", isFlipped: false, disabled: false },
+  { id: 14, color: "bg-purple-300", isFlipped: false, disabled: false },
+  { id: 15, color: "bg-orange-300", isFlipped: false, disabled: false },
+  { id: 16, color: "bg-lime-300", isFlipped: false, disabled: false },
+  { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
+  { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
 ];
 
 function App() {
