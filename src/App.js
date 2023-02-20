@@ -21,6 +21,7 @@ function App() {
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [gameCompleted, setGameCompleted] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
 
   const handleModalButtonClick = () => {
     if (gameCompleted) {
@@ -28,6 +29,7 @@ function App() {
     } else {
       console.log("Starting Game");
       setGameStarted(true);
+      setModalOpen(false);
     }
   };
 
@@ -117,8 +119,8 @@ function App() {
       <Modal
         title={modalData.title}
         text={modalData.text}
-        onModalButtonClick={handleModalButtonClick}
-        // open={gameStarted || gameCompleted}
+        open={modalOpen}
+        setOpen={handleModalButtonClick}
       />
       <Cards cards={cards} onCardClick={handleCardClick} />
     </>
