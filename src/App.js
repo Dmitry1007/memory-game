@@ -102,8 +102,8 @@ function App() {
 
   const modalData = gameCompleted
     ? {
-        title: "Congratulations! You've completed the game!",
-        text: "Want to challenge yourself further? Choose a higher difficulty to increase the number of colors to match.",
+        title: `Congratulations! You've completed the game with ${flips} flips`,
+        text: "Want to challenge yourself further? Try completing the game with less flips or choose a higher difficulty to increase the number of colors to match.",
       }
     : {
         title: "Welcome to Memory Game!",
@@ -123,7 +123,16 @@ function App() {
         open={modalOpen}
         setOpen={handleModalButtonClick}
       />
-      <Cards cards={cards} onCardClick={handleCardClick} />
+      <div className="bg- h-screen w-screen">
+        <div className="grid grid-cols-3 gap-2 p-2">
+          <Cards cards={cards} onCardClick={handleCardClick} />
+        </div>
+        <div className="flex flex-row p-2">
+          <div className="basis-1/4 text-lg font-bold italic text-purple-400">
+            Flips: {flips}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

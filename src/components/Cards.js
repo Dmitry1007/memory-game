@@ -5,11 +5,7 @@ function Cards({ cards, onCardClick }) {
     return <Card key={card.id} card={card} onCardClick={onCardClick} />;
   });
 
-  return (
-    <div className="bg- h-screen w-screen">
-      <div className="grid grid-cols-3 gap-2 p-2">{renderedCards}</div>
-    </div>
-  );
+  return renderedCards;
 }
 
 export default Cards;
