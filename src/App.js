@@ -39,7 +39,7 @@ function App() {
       setModalOpen(true);
       setGameCompleted(true);
     }
-  }, [matches]);
+  }, [matches, cards.length]);
 
   const handleModalButtonClick = () => {
     if (gameCompleted) {
