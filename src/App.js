@@ -35,7 +35,7 @@ function App() {
   });
 
   useEffect(() => {
-    if (matches === cards.length) {
+    if (matches === cards.length / 2) {
       setModalOpen(true);
       setGameCompleted(true);
     }
