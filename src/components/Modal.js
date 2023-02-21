@@ -61,7 +61,7 @@ export default function Modal({ title, text, open, setOpen }) {
                 <div className="flex bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                   <button
                     type="button"
-                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setOpen(1)}
                     ref={startButtonRef}
                   >
@@ -69,7 +69,7 @@ export default function Modal({ title, text, open, setOpen }) {
                   </button>
                   <button
                     type="button"
-                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-amber-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-amber-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setOpen(2)}
                     ref={startButtonRef}
                   >
@@ -77,7 +77,7 @@ export default function Modal({ title, text, open, setOpen }) {
                   </button>
                   <button
                     type="button"
-                    className="mt-3 grow justify-center rounded-md border border-gray-300 bg-red-300 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="mt-3 grow justify-center rounded-md border border-gray-300 bg-red-300 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setOpen(3)}
                     ref={startButtonRef}
                   >

@@ -23,10 +23,36 @@ const Levels = {
     { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
     { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
   ],
+  2: [
+    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
+    { id: 10, color: "bg-yellow-300", isFlipped: false, disabled: false },
+    { id: 11, color: "bg-emerald-300", isFlipped: false, disabled: false },
+    { id: 12, color: "bg-teal-300", isFlipped: false, disabled: false },
+    { id: 13, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 14, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 15, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 16, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 17, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 18, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 19, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 20, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 21, color: "bg-amber-300", isFlipped: false, disabled: false },
+    { id: 22, color: "bg-yellow-300", isFlipped: false, disabled: false },
+    { id: 23, color: "bg-emerald-300", isFlipped: false, disabled: false },
+    { id: 24, color: "bg-teal-300", isFlipped: false, disabled: false },
+  ],
 };
 
 function App() {
-  const [cards, setCards] = useState(Levels[1]);
+  const [cards, setCards] = useState([]);
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
@@ -37,7 +63,7 @@ function App() {
   });
 
   useEffect(() => {
-    if (matches === cards.length / 2) {
+    if (matches === cards.length / 2 && cards.length !== 0) {
       setModalOpen(true);
       setGameCompleted(true);
     }
@@ -47,7 +73,7 @@ function App() {
     if (gameCompleted) {
       console.log("Start Another Game");
       setModalOpen(false);
-      resetGame();
+      resetGame(level);
     } else {
       console.log("Starting Game, Level Chosen:", level);
       setModalOpen(false);
@@ -55,8 +81,8 @@ function App() {
     }
   };
 
-  const resetGame = () => {
-    setCards(Levels[1]);
+  const resetGame = (level) => {
+    setCards(Levels[level]);
     setFlips(0);
     setMatches(0);
     setGameCompleted(false);
