@@ -52,7 +52,9 @@ const Levels = {
 };
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(Levels[1]);
+  const [level, setLevel] = useState();
+
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
@@ -69,14 +71,15 @@ function App() {
     }
   }, [matches, cards.length]);
 
-  const handleModalButtonClick = (level) => {
+  const handleLevelChosen = (level) => {
     if (gameCompleted) {
       console.log("Start Another Game");
       setModalOpen(false);
+      setLevel(level);
       resetGame(level);
     } else {
-      console.log("Starting Game, Level Chosen:", level);
       setModalOpen(false);
+      setLevel(level);
       setCards(Levels[level]);
     }
   };
@@ -162,8 +165,11 @@ function App() {
         text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
       };
 
-  console.log("flips: ", flips);
-  console.log("matches: ", matches);
+  const gridColumns = level === 2 ? "grid-cols-4" : "grid-cols-3";
+
+  console.log("Flips: ", flips);
+  console.log("Matches: ", matches);
+  console.log("Level: ", level);
   console.log("Game Completed? ", gameCompleted);
   console.log("--------------------------------------------------");
 
@@ -173,9 +179,9 @@ function App() {
         title={modalData.title}
         text={modalData.text}
         open={modalOpen}
-        setOpen={handleModalButtonClick}
+        setOpen={handleLevelChosen}
       />
-      <div className="mr-10 ml-10 mt-4 mb-2 grid grid-cols-3 gap-2">
+      <div className={`mr-10 ml-10 mt-4 mb-2 grid ${gridColumns} gap-2`}>
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
       <div className="ml-10 flex flex-row">
