@@ -2,29 +2,31 @@ import { useState, useEffect } from "react";
 import Cards from "./components/Cards";
 import Modal from "./components/Modal";
 
-const CARDS = [
-  { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
-  { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
-  { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
-  { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
-  { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
-  { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
-  { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
-  { id: 10, color: "bg-red-300", isFlipped: false, disabled: false },
-  { id: 11, color: "bg-pink-300", isFlipped: false, disabled: false },
-  { id: 12, color: "bg-green-300", isFlipped: false, disabled: false },
-  { id: 13, color: "bg-blue-300", isFlipped: false, disabled: false },
-  { id: 14, color: "bg-purple-300", isFlipped: false, disabled: false },
-  { id: 15, color: "bg-orange-300", isFlipped: false, disabled: false },
-  { id: 16, color: "bg-lime-300", isFlipped: false, disabled: false },
-  { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
-  { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
-];
+const Levels = {
+  1: [
+    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
+    { id: 10, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 11, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 12, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 13, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 14, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 15, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 16, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
+  ],
+};
 
 function App() {
-  const [cards, setCards] = useState(CARDS);
+  const [cards, setCards] = useState(Levels[1]);
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
@@ -41,19 +43,20 @@ function App() {
     }
   }, [matches, cards.length]);
 
-  const handleModalButtonClick = () => {
+  const handleModalButtonClick = (level) => {
     if (gameCompleted) {
       console.log("Start Another Game");
       setModalOpen(false);
       resetGame();
     } else {
-      console.log("Starting Game");
+      console.log("Starting Game, Level Chosen:", level);
       setModalOpen(false);
+      setCards(Levels[level]);
     }
   };
 
   const resetGame = () => {
-    setCards(CARDS);
+    setCards(Levels[1]);
     setFlips(0);
     setMatches(0);
     setGameCompleted(false);
@@ -146,11 +149,11 @@ function App() {
         open={modalOpen}
         setOpen={handleModalButtonClick}
       />
-      <div className="m-10 mb-2 grid grid-cols-3 gap-2">
+      <div className="mr-10 ml-10 mt-4 mb-2 grid grid-cols-3 gap-2">
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
-      <div className="flex flex-row pl-8">
-        <div className="basis-1/4 text-lg font-bold italic text-purple-400">
+      <div className="ml-10 flex flex-row">
+        <div className="basis-1/4 text-lg font-bold italic text-slate-500">
           Flips: {flips}
         </div>
       </div>

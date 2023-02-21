@@ -39,7 +39,7 @@ export default function Modal({ title, text, open, setOpen }) {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-yellow-200 sm:mx-0 sm:h-10 sm:w-10">
+                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-amber-200 sm:mx-0 sm:h-10 sm:w-10">
                       <Squares2X2Icon
                         className="h-6 w-6 text-blue-600"
                         aria-hidden="true"
@@ -58,14 +58,30 @@ export default function Modal({ title, text, open, setOpen }) {
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div className="flex bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                   <button
                     type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={setOpen}
+                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpen(1)}
                     ref={startButtonRef}
                   >
-                    Start
+                    Easy
+                  </button>
+                  <button
+                    type="button"
+                    className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-amber-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpen(2)}
+                    ref={startButtonRef}
+                  >
+                    Hard
+                  </button>
+                  <button
+                    type="button"
+                    className="mt-3 grow justify-center rounded-md border border-gray-300 bg-red-300 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOpen(3)}
+                    ref={startButtonRef}
+                  >
+                    Hardest!
                   </button>
                 </div>
               </Dialog.Panel>
