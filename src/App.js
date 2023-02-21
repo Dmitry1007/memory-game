@@ -146,10 +146,10 @@ function App() {
         open={modalOpen}
         setOpen={handleModalButtonClick}
       />
-      <div className="m-8 mb-5 grid grid-cols-3 gap-2">
+      <div className="m-10 mb-2 grid grid-cols-3 gap-2">
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
-      <div className="flex flex-row pl-6">
+      <div className="flex flex-row pl-8">
         <div className="basis-1/4 text-lg font-bold italic text-purple-400">
           Flips: {flips}
         </div>
