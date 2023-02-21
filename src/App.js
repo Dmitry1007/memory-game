@@ -49,11 +49,45 @@ const Levels = {
     { id: 23, color: "bg-emerald-300", isFlipped: false, disabled: false },
     { id: 24, color: "bg-teal-300", isFlipped: false, disabled: false },
   ],
+  3: [
+    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
+    { id: 10, color: "bg-yellow-300", isFlipped: false, disabled: false },
+    { id: 11, color: "bg-emerald-300", isFlipped: false, disabled: false },
+    { id: 12, color: "bg-teal-300", isFlipped: false, disabled: false },
+    { id: 13, color: "bg-fuchsia-300", isFlipped: false, disabled: false },
+    { id: 14, color: "bg-sky-300", isFlipped: false, disabled: false },
+    { id: 15, color: "bg-indigo-300", isFlipped: false, disabled: false },
+    { id: 16, color: "bg-violet-300", isFlipped: false, disabled: false },
+    { id: 17, color: "bg-red-300", isFlipped: false, disabled: false },
+    { id: 18, color: "bg-pink-300", isFlipped: false, disabled: false },
+    { id: 19, color: "bg-green-300", isFlipped: false, disabled: false },
+    { id: 20, color: "bg-blue-300", isFlipped: false, disabled: false },
+    { id: 21, color: "bg-purple-300", isFlipped: false, disabled: false },
+    { id: 22, color: "bg-orange-300", isFlipped: false, disabled: false },
+    { id: 23, color: "bg-lime-300", isFlipped: false, disabled: false },
+    { id: 24, color: "bg-cyan-300", isFlipped: false, disabled: false },
+    { id: 25, color: "bg-amber-300", isFlipped: false, disabled: false },
+    { id: 26, color: "bg-yellow-300", isFlipped: false, disabled: false },
+    { id: 27, color: "bg-emerald-300", isFlipped: false, disabled: false },
+    { id: 28, color: "bg-teal-300", isFlipped: false, disabled: false },
+    { id: 29, color: "bg-fuchsia-300", isFlipped: false, disabled: false },
+    { id: 30, color: "bg-sky-300", isFlipped: false, disabled: false },
+    { id: 31, color: "bg-indigo-300", isFlipped: false, disabled: false },
+    { id: 32, color: "bg-violet-300", isFlipped: false, disabled: false },
+  ],
 };
 
 function App() {
   const [cards, setCards] = useState(Levels[1]);
-  const [level, setLevel] = useState();
+  const [level, setLevel] = useState(1);
 
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
@@ -165,7 +199,13 @@ function App() {
         text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
       };
 
-  const gridColumns = level === 2 ? "grid-cols-4" : "grid-cols-3";
+  const gridColumns = () => {
+    if (level === 1) {
+      return "grid-cols-3";
+    } else {
+      return "grid-cols-4";
+    }
+  };
 
   console.log("Flips: ", flips);
   console.log("Matches: ", matches);
@@ -181,7 +221,7 @@ function App() {
         open={modalOpen}
         setOpen={handleLevelChosen}
       />
-      <div className={`mr-10 ml-10 mt-4 mb-2 grid ${gridColumns} gap-2`}>
+      <div className={`mr-10 ml-10 mt-4 mb-2 grid ${gridColumns()} gap-2`}>
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
       <div className="ml-10 flex flex-row">
