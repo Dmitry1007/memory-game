@@ -146,7 +146,7 @@ function App() {
         open={modalOpen}
         setOpen={handleModalButtonClick}
       />
-      <div className="grid grid-cols-3 gap-2 p-6">
+      <div className="m-8 mb-5 grid grid-cols-3 gap-2">
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
       <div className="flex flex-row pl-6">

@@ -16,11 +16,11 @@ function Card({ card, onCardClick }) {
       containerClassName="hover:cursor-pointer"
     >
       <div
-        className="aspect-square min-h-0 min-w-0 rounded-xl bg-slate-300 shadow-xl"
+        className="aspect-square rounded-xl bg-slate-300 shadow-xl"
         onClick={() => handleClick(card)}
       ></div>
       <div
-        className={`aspect-square min-h-0 min-w-0 rounded-xl ${card.color} shadow-xl`}
+        className={`aspect-square rounded-xl ${card.color} shadow-xl`}
         onClick={() => handleClick(card)}
       ></div>
     </ReactCardFlip>
