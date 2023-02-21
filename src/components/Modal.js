@@ -11,7 +11,8 @@ export default function Modal({ title, text, open, setOpen }) {
         as="div"
         className="relative z-10"
         initialFocus={startButtonRef}
-        onClose={setOpen}
+        // disable background clicks
+        onClose={() => {}}
       >
         <Transition.Child
           as={Fragment}
