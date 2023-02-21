@@ -59,7 +59,7 @@ export default function Modal({ title, text, open, setOpen }) {
                     </div>
                   </div>
                 </div>
-                <div className="flex bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                <div className="flex bg-gray-50 px-4 py-3 sm:flex sm:px-6">
                   <button
                     type="button"
                     className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"

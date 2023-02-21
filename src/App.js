@@ -1,94 +1,11 @@
 import { useState, useEffect } from "react";
 import Cards from "./components/Cards";
 import Modal from "./components/Modal";
-
-const Levels = {
-  1: [
-    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
-    { id: 10, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 11, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 12, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 13, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 14, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 15, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 16, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
-  ],
-  2: [
-    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
-    { id: 10, color: "bg-yellow-300", isFlipped: false, disabled: false },
-    { id: 11, color: "bg-emerald-300", isFlipped: false, disabled: false },
-    { id: 12, color: "bg-teal-300", isFlipped: false, disabled: false },
-    { id: 13, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 14, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 15, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 16, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 17, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 18, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 19, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 20, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 21, color: "bg-amber-300", isFlipped: false, disabled: false },
-    { id: 22, color: "bg-yellow-300", isFlipped: false, disabled: false },
-    { id: 23, color: "bg-emerald-300", isFlipped: false, disabled: false },
-    { id: 24, color: "bg-teal-300", isFlipped: false, disabled: false },
-  ],
-  3: [
-    { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 2, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 3, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 4, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 5, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 6, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 7, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 8, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 9, color: "bg-amber-300", isFlipped: false, disabled: false },
-    { id: 10, color: "bg-yellow-300", isFlipped: false, disabled: false },
-    { id: 11, color: "bg-emerald-300", isFlipped: false, disabled: false },
-    { id: 12, color: "bg-teal-300", isFlipped: false, disabled: false },
-    { id: 13, color: "bg-fuchsia-300", isFlipped: false, disabled: false },
-    { id: 14, color: "bg-sky-300", isFlipped: false, disabled: false },
-    { id: 15, color: "bg-indigo-300", isFlipped: false, disabled: false },
-    { id: 16, color: "bg-violet-300", isFlipped: false, disabled: false },
-    { id: 17, color: "bg-red-300", isFlipped: false, disabled: false },
-    { id: 18, color: "bg-pink-300", isFlipped: false, disabled: false },
-    { id: 19, color: "bg-green-300", isFlipped: false, disabled: false },
-    { id: 20, color: "bg-blue-300", isFlipped: false, disabled: false },
-    { id: 21, color: "bg-purple-300", isFlipped: false, disabled: false },
-    { id: 22, color: "bg-orange-300", isFlipped: false, disabled: false },
-    { id: 23, color: "bg-lime-300", isFlipped: false, disabled: false },
-    { id: 24, color: "bg-cyan-300", isFlipped: false, disabled: false },
-    { id: 25, color: "bg-amber-300", isFlipped: false, disabled: false },
-    { id: 26, color: "bg-yellow-300", isFlipped: false, disabled: false },
-    { id: 27, color: "bg-emerald-300", isFlipped: false, disabled: false },
-    { id: 28, color: "bg-teal-300", isFlipped: false, disabled: false },
-    { id: 29, color: "bg-fuchsia-300", isFlipped: false, disabled: false },
-    { id: 30, color: "bg-sky-300", isFlipped: false, disabled: false },
-    { id: 31, color: "bg-indigo-300", isFlipped: false, disabled: false },
-    { id: 32, color: "bg-violet-300", isFlipped: false, disabled: false },
-  ],
-};
+import SetupGame from "./helpers/SetupGame";
 
 function App() {
-  const [cards, setCards] = useState(Levels[1]);
   const [level, setLevel] = useState(1);
-
+  const [cards, setCards] = useState(SetupGame(level));
   const [flips, setFlips] = useState(0);
   const [matches, setMatches] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
@@ -99,13 +16,13 @@ function App() {
   });
 
   useEffect(() => {
-    if (matches === cards.length / 2 && cards.length !== 0) {
+    if (matches === cards.length / 2) {
       setModalOpen(true);
       setGameCompleted(true);
     }
   }, [matches, cards.length]);
 
-  const handleLevelChosen = (level) => {
+  function handleLevelChosen(level) {
     if (gameCompleted) {
       console.log("Start Another Game");
       setModalOpen(false);
@@ -114,12 +31,14 @@ function App() {
     } else {
       setModalOpen(false);
       setLevel(level);
-      setCards(Levels[level]);
+      const newGame = SetupGame(level);
+      setCards(newGame);
     }
-  };
+  }
 
   const resetGame = (level) => {
-    setCards(Levels[level]);
+    const newGame = SetupGame(level);
+    setCards(newGame);
     setFlips(0);
     setMatches(0);
     setGameCompleted(false);
