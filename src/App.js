@@ -122,14 +122,6 @@ function App() {
         text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
       };
 
-  const gridColumns = () => {
-    if (level === 1) {
-      return "grid-cols-3";
-    } else {
-      return "grid-cols-4";
-    }
-  };
-
   console.log("Flips: ", flips);
   console.log("Matches: ", matches);
   console.log("Level: ", level);
@@ -137,14 +129,14 @@ function App() {
   console.log("--------------------------------------------------");
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen md:bg-red-300">
       <Modal
         title={modalData.title}
         text={modalData.text}
         open={modalOpen}
         setOpen={handleLevelChosen}
       />
-      <div className={`mr-10 ml-10 mt-4 mb-2 grid ${gridColumns()} gap-2`}>
+      <div className="mr-10 ml-10 mt-4 mb-2 grid grid-cols-4 gap-2">
         <Cards cards={cards} onCardClick={handleCardClick} />
       </div>
       <div className="ml-10 flex flex-row">
