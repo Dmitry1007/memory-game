@@ -1,1 +1,1 @@
-## Still in Development, Going to make it more responsive across screex sizes soon.
+## Still in Development, Going to make it more responsive across screen sizes soon.
