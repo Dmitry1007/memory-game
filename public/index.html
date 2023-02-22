@@ -41,7 +41,8 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("set", "cookie_domain", "dmitry1007.github.io/memory-game/");
+      // This property is causing a bunch of errors
+      // gtag("set", "cookie_domain", "dmitry1007.github.io/memory-game/");
       gtag("set", "cookie_flags", "SameSite=None;Secure");
       gtag("config", "G-QZNTLK46XB");
     </script>
