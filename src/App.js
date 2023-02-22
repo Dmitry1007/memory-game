@@ -3,9 +3,9 @@ import Cards from "./components/Cards";
 import Modal from "./components/Modal";
 import SetupGame from "./helpers/SetupGame";
 
-import ReactGA from "react-ga";
-const MEASUREMENT_ID = "G-QZNTLK46XB";
-ReactGA.initialize(MEASUREMENT_ID);
+// import ReactGA from "react-ga";
+// const MEASUREMENT_ID = "G-QZNTLK46XB";
+// ReactGA.initialize(MEASUREMENT_ID);
 
 function App() {
   const [level, setLevel] = useState(1);
