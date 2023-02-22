@@ -19,7 +19,7 @@ function SetupGame(level) {
       { id: 16, color: "bg-lime-300", isFlipped: false, disabled: false },
       { id: 17, color: "bg-cyan-300", isFlipped: false, disabled: false },
       { id: 18, color: "bg-amber-300", isFlipped: false, disabled: false },
-    ];
+    ].sort((a, b) => 0.5 - Math.random());
   } else if (level === 2) {
     return [
       { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
@@ -46,7 +46,7 @@ function SetupGame(level) {
       { id: 22, color: "bg-yellow-300", isFlipped: false, disabled: false },
       { id: 23, color: "bg-emerald-300", isFlipped: false, disabled: false },
       { id: 24, color: "bg-teal-300", isFlipped: false, disabled: false },
-    ];
+    ].sort((a, b) => 0.5 - Math.random());
   } else if (level === 3) {
     return [
       { id: 1, color: "bg-red-300", isFlipped: false, disabled: false },
@@ -81,7 +81,7 @@ function SetupGame(level) {
       { id: 30, color: "bg-sky-300", isFlipped: false, disabled: false },
       { id: 31, color: "bg-indigo-300", isFlipped: false, disabled: false },
       { id: 32, color: "bg-violet-300", isFlipped: false, disabled: false },
-    ];
+    ].sort((a, b) => 0.5 - Math.random());
   }
   return console.log("Something went wrong loading cards");
 }

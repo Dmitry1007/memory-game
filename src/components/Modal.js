@@ -66,7 +66,7 @@ export default function Modal({ title, text, open, setOpen }) {
                     type="button"
                     className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => {
-                      setOpen(2);
+                      setOpen(1);
                       // gaEventTracker("level easy");
                     }}
                     ref={startButtonRef}
@@ -88,7 +88,7 @@ export default function Modal({ title, text, open, setOpen }) {
                     type="button"
                     className="mt-3 grow justify-center rounded-md border border-gray-300 bg-red-300 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => {
-                      setOpen(2);
+                      setOpen(3);
                       // gaEventTracker("level hardest");
                     }}
                     ref={startButtonRef}
