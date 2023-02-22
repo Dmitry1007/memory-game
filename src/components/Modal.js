@@ -1,8 +1,10 @@
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Squares2X2Icon } from "@heroicons/react/24/outline";
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 
 export default function Modal({ title, text, open, setOpen }) {
+  const gaEventTracker = useAnalyticsEventTracker("Modal");
   const startButtonRef = useRef(null);
 
   return (
@@ -63,7 +65,10 @@ export default function Modal({ title, text, open, setOpen }) {
                   <button
                     type="button"
                     className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-lime-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => setOpen(1)}
+                    onClick={() => {
+                      setOpen(2);
+                      gaEventTracker("level easy");
+                    }}
                     ref={startButtonRef}
                   >
                     Easy
@@ -71,7 +76,10 @@ export default function Modal({ title, text, open, setOpen }) {
                   <button
                     type="button"
                     className="mt-3 mr-1 grow justify-center rounded-md border border-gray-300 bg-amber-200 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => setOpen(2)}
+                    onClick={() => {
+                      setOpen(2);
+                      gaEventTracker("level hard");
+                    }}
                     ref={startButtonRef}
                   >
                     Hard
@@ -79,7 +87,10 @@ export default function Modal({ title, text, open, setOpen }) {
                   <button
                     type="button"
                     className="mt-3 grow justify-center rounded-md border border-gray-300 bg-red-300 px-4 py-2 text-base font-medium shadow-sm hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => setOpen(3)}
+                    onClick={() => {
+                      setOpen(2);
+                      gaEventTracker("level hardest");
+                    }}
                     ref={startButtonRef}
                   >
                     Hardest!
