@@ -129,17 +129,15 @@ function App() {
   console.log("--------------------------------------------------");
 
   return (
-    <div className="h-screen w-screen md:bg-red-300">
+    <div className="md:grid md:justify-items-center">
       <Modal
         title={modalData.title}
         text={modalData.text}
         open={modalOpen}
         setOpen={handleLevelChosen}
       />
-      <div className="mr-10 ml-10 mt-4 mb-2 grid grid-cols-4 gap-2">
+      <div className="m-6 mb-2 grid grid-cols-4 gap-2 md:w-1/2 lg:w-5/12">
         <Cards cards={cards} onCardClick={handleCardClick} />
-      </div>
-      <div className="ml-10 flex flex-row">
         <div className="basis-1/4 text-lg font-bold italic text-slate-500">
           Flips: {flips}
         </div>
