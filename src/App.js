@@ -70,11 +70,11 @@ function App() {
       // Track matches
       setMatches(matches + 1);
       // disable both cards
-      disableCard(clickedCard);
+      disableCards(clickedCard);
     }
   };
 
-  const disableCard = (clickedCard) => {
+  const disableCards = (clickedCard) => {
     const updatedCards = cards.map((card) => {
       if (card.isFlipped || card === clickedCard) {
         return { ...card, isFlipped: true, disabled: true };
@@ -119,7 +119,7 @@ function App() {
       }
     : {
         title: "Welcome to Memory Game!",
-        text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score.",
+        text: "Start by pushing on any square to reveal its color. Continue to search for its match. Complete the game by finiding all the matches. The less flips to completion, the higher your score!",
       };
 
   console.log("Flips: ", flips);
